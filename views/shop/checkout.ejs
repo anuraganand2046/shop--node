@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+    </head>
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+                <ul class="cart__item-list">
+                        <% products.forEach(p => { %>
+                            <li class="cart__item">
+                                <h1><%= p.productId.title %></h1>
+                                <h2>Quantity: <%= p.quantity %></h2>
+                            </li>
+                    <% }) %>
+                </ul>
+                <div class="centered">
+                    <h2>Total:  <%=totalSum%></h2>
+                </div>
+                <div class="centered">
+                    <button id="order-btn" class="btn">ORDER</button>
+                    <script src="https://js.stripe.com/v3/"></script>
+                    <script>
+                        var stripe = Stripe('pk_test_51IskMdSJPcVIURXihG3tLj9Qf2LGSpVDqBc6pj422CRewHcF3QPmbTu00C6z6osBKcTkIhkCVwRD16dlMtH5LHyn00DM5jlscd');//this is stripe object.Now we can use the properties of stripe provided to us by stripe.
+                        var orderBtn= document.getElementById('order-btn');//this is getting a id element from the ejs so that when it is clicked we know that and hence make stripe do some magic.
+                        orderBtn.addEventListener('click', function(){
+                            stripe.redirectToCheckout({
+                                sessionId: '<%= sessionId %>'
+                            })
+                        });
+                    </script>
+                </div>
+
+        </main>
+<%- include('../includes/end.ejs') %>
