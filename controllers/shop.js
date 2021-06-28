@@ -226,7 +226,7 @@ exports.getProduct= (req, res, next)=>{
 }
 exports.postCartDeleteProduct= (req, res, next)=>{
     const prodId= req.body.productId;
-    req.user.removeFromCart(prodId)
+    req.user.removeFromCart(prodId)//removeFromCart -> a method of user field which we defined using mongoose.
     .then(result=>{
         res.redirect('/cart');
     })

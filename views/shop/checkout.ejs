@@ -22,6 +22,7 @@
                         var stripe = Stripe('pk_test_51IskMdSJPcVIURXihG3tLj9Qf2LGSpVDqBc6pj422CRewHcF3QPmbTu00C6z6osBKcTkIhkCVwRD16dlMtH5LHyn00DM5jlscd');//this is stripe object.Now we can use the properties of stripe provided to us by stripe.
                         var orderBtn= document.getElementById('order-btn');//this is getting a id element from the ejs so that when it is clicked we know that and hence make stripe do some magic.
                         orderBtn.addEventListener('click', function(){
+                            console.log("Hii")
                             stripe.redirectToCheckout({
                                 sessionId: '<%= sessionId %>'
                             })

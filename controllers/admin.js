@@ -12,6 +12,7 @@ exports.getAddProduct = (req, res, next) => {
   });
 };
 exports.postAddProduct = (req, res, next) => {
+  console.log(req);
   const title = req.body.title;
   const image = req.file;
   const price = req.body.price;
@@ -33,6 +34,7 @@ exports.postAddProduct = (req, res, next) => {
     });
   }
   const imageUrl= image.path;
+  console.log(imageUrl);
   if (!errors.isEmpty()) {
     return res.status(422).render('admin/edit-product', {//this is validating code.
       pageTitle: 'Add Product',

@@ -1,3 +1,6 @@
+
+//https://shop--node.herokuapp.com/products?page=1   <---link to hosted application.
+
 //motto: never give up.
 const express= require('express');
 const https= require('https');
@@ -103,9 +106,8 @@ app.use((error, req, res, next)=>{
 mongoose.connect(MONGODB_URI).then(result=>{
     //  https.createServer({key: privateKey, cert: certificate}, app).listen(process.env.PORT||3000);
      //->environment variable required-----> the hosting provider will check for the process.env.port and if filled they will use that one as port.Otherwise 3000 is good.
-    app.listen(process.env.PORT||500);
+    app.listen(process.env.PORT||3000);
 }).catch(err=>console.log(err));
-
 //https=http+secure.HTTPS is the HTTP(primary protocol used to send data between a web browser and a website.) protocol over TLS/SSL.Every website nowadays should use https rather than http.
 // HTTPS eliminates the ability of unmoderated third parties to inject advertising into web content.
 
