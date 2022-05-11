@@ -139,4 +139,8 @@ mongoose.connect(MONGODB_URI).then(result=>{
 //random changes from feature
 //more changes
 
+<<<<<<< HEAD
 //I am at feature3
+=======
+//I am at feature
+>>>>>>> feature
